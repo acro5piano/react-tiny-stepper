@@ -1,7 +1,21 @@
-import '../../dist/react-tiny-stepper.css'
+# react-tiny-stepper
 
-import React, { useState } from 'react'
-import { Stepper } from '../..'
+dead simple stepper library for React
+
+## Usage
+
+Install the package:
+
+```bash
+$ yarn add react-tiny-stepper
+```
+
+Then place the component:
+
+```tsx
+import 'react-tiny-stepper/dist/react-tiny-stepper.css'
+import { Stepper } from 'react-tiny-stepper'
+import { useState } from 'react'
 
 const STEPS = ['Input your info', 'Confirm', 'Register', 'Complete'] as const
 type IStep = typeof STEPS[number]
@@ -16,18 +30,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Default Theme</h1>
-      <Stepper steps={STEPS} activeStep={step} onChange={onStepChange} />
-
-      <h1>With custom color</h1>
       <Stepper
         steps={STEPS}
         activeStep={step}
-        onChange={onStepChange}
-        primaryColor="#4f46e5"
+        onChange={onStepChange} // optional
+        primaryColor="#4f46e5" // optional
       />
     </div>
   )
 }
-
-export default App
+```
