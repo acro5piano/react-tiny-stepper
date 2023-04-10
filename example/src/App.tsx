@@ -15,17 +15,44 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Default Theme</h1>
-      <Stepper steps={STEPS} activeStep={step} onChange={onStepChange} />
-
-      <h1>With custom color</h1>
-      <Stepper
-        steps={STEPS}
-        activeStep={step}
-        onChange={onStepChange}
-        primaryColor="#4f46e5"
-      />
+    <div className="">
+      <nav
+        className="navbar is-dark"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div className="navbar-brand">
+          <div className="navbar-start">
+            <a className="navbar-item">react-tiny-stepper</a>
+          </div>
+        </div>
+      </nav>
+      <div className="container content" style={{ marginTop: 24 }}>
+        <div className="columns">
+          <div className="column card ">
+            <h2>Default Theme</h2>
+            <div className="card-content">
+              <Stepper
+                steps={STEPS}
+                activeStep={step}
+                onChange={onStepChange}
+              />
+            </div>
+          </div>
+          <div className="column is-1"></div>
+          <div className="column card ">
+            <h2>With custom color</h2>
+            <div className="card-content">
+              <Stepper
+                steps={STEPS}
+                activeStep={step}
+                onChange={onStepChange}
+                primaryColor="#4f46e5"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
