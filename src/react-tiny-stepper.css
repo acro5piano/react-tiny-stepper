@@ -45,7 +45,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #ccc;
+  background-color: #ccc;
   margin-bottom: 6px;
 }
 
@@ -67,4 +67,3 @@
 .react-tiny-stepper .stepper-item:last-child::after {
   content: none;
 }
-

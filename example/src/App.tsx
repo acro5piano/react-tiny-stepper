@@ -1,5 +1,7 @@
+import '../../dist/react-tiny-stepper.css'
+
 import React, { useState } from 'react'
-import { Stepper } from './react-tiny-stepper/react-tiny-stepper'
+import { Stepper } from '../..'
 
 const STEPS = ['Input your info', 'Confirm', 'Register', 'Complete'] as const
 type IStep = typeof STEPS[number]
@@ -14,10 +16,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Stepper steps={STEPS} activeStep={step} onChange={onStepChange} />
-      </div>
+      <h1>Default Theme</h1>
+      <Stepper steps={STEPS} activeStep={step} onChange={onStepChange} />
+
+      <h1>With custom color</h1>
+      <Stepper
+        steps={STEPS}
+        activeStep={step}
+        onChange={onStepChange}
+        primaryColor="#4f46e5"
+        secondaryColor="#e2e8f0"
+      />
     </div>
   )
 }

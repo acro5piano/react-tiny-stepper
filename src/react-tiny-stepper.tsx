@@ -13,13 +13,15 @@ function classNames(...maybeClasses: Array<string | boolean | undefined>) {
 interface StepperProps<T extends string> {
   steps: readonly T[]
   activeStep: T
-  onChange: (step: T) => void
+  onChange?: (step: T) => void
+  primaryColor?: string
 }
 
 export const Stepper = <T extends string>({
   steps,
   activeStep,
   onChange,
+  primaryColor,
 }: StepperProps<T>) => {
   const currentIndex = steps.findIndex((s) => s === activeStep)!
   return (
@@ -31,10 +33,30 @@ export const Stepper = <T extends string>({
             'stepper-item',
             currentIndex === index && 'current',
           )}
-          onClick={() => onChange(step)}
+          onClick={() => onChange && onChange(step)}
         >
-          <div className={'step-counter'}></div>
-          <div className={'step-name'}>{step}</div>
+          <div
+            className={'step-counter'}
+            style={
+              currentIndex === index
+                ? primaryColor
+                  ? { backgroundColor: primaryColor }
+                  : {}
+                : undefined
+            }
+          ></div>
+          <div
+            className={'step-name'}
+            style={
+              currentIndex === index
+                ? primaryColor
+                  ? { color: primaryColor }
+                  : {}
+                : undefined
+            }
+          >
+            {step}
+          </div>
         </div>
       ))}
     </div>
