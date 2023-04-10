@@ -1,6 +1,9 @@
 # react-tiny-stepper
 
-dead simple stepper library for React
+A dead simple stepper library for React
+
+![image](https://user-images.githubusercontent.com/10719495/230941626-72a215fd-d3cd-4f6c-99b0-a4116947f6f1.png)
+
 
 ## Usage
 
