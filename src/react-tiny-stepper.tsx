@@ -1,8 +1,18 @@
-import clsx from 'clsx'
+import React from 'react'
+
+function classNames(...maybeClasses: Array<string | boolean | undefined>) {
+  let result = ''
+  for (const cls of maybeClasses) {
+    if (Boolean(cls)) {
+      result += cls + ' '
+    }
+  }
+  return result
+}
 
 interface StepperProps<T extends string> {
-  activeStep: T
   steps: readonly T[]
+  activeStep: T
   onChange: (step: T) => void
 }
 
@@ -17,7 +27,10 @@ export const Stepper = <T extends string>({
       {steps.map((step, index) => (
         <div
           key={step}
-          className={clsx('stepper-item', currentIndex === index && 'current')}
+          className={classNames(
+            'stepper-item',
+            currentIndex === index && 'current',
+          )}
           onClick={() => onChange(step)}
         >
           <div className={'step-counter'}></div>
@@ -27,4 +40,3 @@ export const Stepper = <T extends string>({
     </div>
   )
 }
-
